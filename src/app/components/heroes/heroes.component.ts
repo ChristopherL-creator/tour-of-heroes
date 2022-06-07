@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from 'src/app/model/hero';
-import { HEROES } from 'src/app/model/mock-heroes';
+import { HeroService } from 'src/app/services/hero/hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -18,16 +18,26 @@ export class HeroesComponent implements OnInit {
     selectedHero?: Hero; // quando etto nuova proprietà controlla se l'abbia già inizializzata,
     //                      scrivendola così non devo garantire che sia proprietà piena(opppure  selectedHero: Hero | undefined)
 
-    heroes = HEROES;
+    heroes: Hero[] = []; // inizio con heroes array vuoto
 
-    constructor() { }
+    constructor(private heroServ: HeroService) { //
 
-    ngOnInit(): void {
+    }
+
+    ngOnInit(): void { //genero chiamata per avere eroi
+      this.getHeroes()
     }
 
     onSelect(hero: Hero): void {
       this.selectedHero = hero;
       console.log(this.selectedHero);
+    }
 
+    getHeroes(){
+      // this.heroes = this.heroServ.getHeroes(); // heroserv mi da eroi mock
+      this.heroServ.getHeroes().subscribe({
+        next: newHeroes => this.heroes = newHeroes,
+        error: err => console.log(err)
+      });
     }
 }
