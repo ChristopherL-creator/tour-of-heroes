@@ -10,31 +10,31 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit{
 
   //  prima di dichiarare proprietà in this, le devo dichiare in cima
-  title: string = 'Lista studenti';
+  title: string = 'Tour of Heroes';
   //metto quadre dopo stringa per indicare che è array
   // students: string[] = ['pippo', 'pluto', 'paperina', 'minnie', 'paperone', 'topolino', 'gastone']
-  students2: any[] = [// array di oggetti studente generici
-  {
-    name: 'pippo',
-    grade: 10
-  },
-  {
-    name: 'pluto',
-    grade: 6
-  },
-  {
-    name: 'paperina',
-    grade: 7
-  },
-  {
-    name: 'paperone',
-    grade: 3
-  },
-  {
-    name: 'minnie',
-    grade: 4
-  }
-]
+//   students2: any[] = [// array di oggetti studente generici
+//   {
+//     name: 'pippo',
+//     grade: 10
+//   },
+//   {
+//     name: 'pluto',
+//     grade: 6
+//   },
+//   {
+//     name: 'paperina',
+//     grade: 7
+//   },
+//   {
+//     name: 'paperone',
+//     grade: 3
+//   },
+//   {
+//     name: 'minnie',
+//     grade: 4
+//   }
+// ]
 
 
   constructor(){

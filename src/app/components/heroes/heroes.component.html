@@ -1,0 +1,28 @@
+<!-- <h2>{{hero.name | uppercase}} Details</h2> -->
+<!-- richiamo variabile hero da heroes.components -->
+<!-- <div><span>id: </span>{{hero.id}}</div>
+<div>
+  <label for="name">Hero name: </label>
+  <input id="name" [(ngModel)]="hero.name" placeholder="name"> -->
+<!-- [(ngmodel)] ci permette di connettere oggetto hero, che lo segue, a input barra, in input (posso riscriverlo),
+  e in output (l modifica è visibile automaticmante, senza dover salvare) -->
+<!-- nome viene modificato in tempo reale -->
+<!-- </div> -->
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name | uppercase}} Details</h2>
+  <div>id: {{selectedHero.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+  </div>
+</div>
+
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <button type="button" (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span>
+      <span class="name">{{hero.name}}</span>
+    </button>
+  </li>
+</ul>

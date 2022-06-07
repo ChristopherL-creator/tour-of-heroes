@@ -1,16 +1,21 @@
 <!-- cancello tutto tranne routeer outlet -->
 
-<div id="app-container">
-  <h1>{{title}}</h1>
+<!-- <div id="app-container">
+  <h1>{{title}}</h1> -->
   <!-- posso usare tutte variabili js tra doppie graffe -->
-  <ul>
-    <li *ngFor="let item of students2">
+  <!-- <ul>
+    <li *ngFor="let item of students2"> -->
       <!-- for of per cicleare sutdenti -->
-      <span class="student-name-span">{{item.name}}</span><br>
+      <!-- <span class="student-name-span">{{item.name}}</span><br>
       <span *ngIf="item.grade >= 6">{{item.grade}}</span>
     </li>
   </ul>
-</div>
+</div> -->
+
+<h1>{{title}}</h1>
+<!-- richiamo title da app.components.ts -->
+<app-heroes></app-heroes>
+<!-- richiamo selector da app.components.ts -->
 
 
 <router-outlet></router-outlet>
