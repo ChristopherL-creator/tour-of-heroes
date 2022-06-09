@@ -17,4 +17,21 @@ export class HeroService {
     this.messageServ.add('ciao, son hero service, ho caricato eroi')
     return heroes; // ho arry di obserable
   }
+
+  getHero(id: number): Observable<Hero>{
+    const hero = HEROES.find(h => h.id === id)!;
+    //  ciclo su tutti gli eroi, prendo singolo hero con find(filter che prende primo elemento a rispettare condizione, che abbia id uguale a id
+    //  già passato)
+    this.messageServ.add(`HeroService: fetched hero id=${id}`);
+    return of(hero);
+  }
+
+  // find(id: number){
+  //   for (const hero of HEROES) {
+  //     if (hero.id === id)
+  //       return hero;
+  //   }
+  // }
+  // return undefined
 }
+
