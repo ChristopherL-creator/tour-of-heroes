@@ -12,12 +12,24 @@
   </ul>
 </div> -->
 
+<!-- <h1>{{title}}</h1> -->
+<!-- richiamo title da app.components.ts -->
+<!-- <app-heroes></app-heroes> -->
+<!-- richiamo selector da app.components.ts -->
+<!-- <app-messages></app-messages> -->
+<!-- richamo app-messages che ho scricato -->
+<!-- <router-outlet></router-outlet> -->
+<!-- quando sei in /heres/ diventa heroesComponent -->
+
 <h1>{{title}}</h1>
 <!-- richiamo title da app.components.ts -->
-<app-heroes></app-heroes>
-<!-- richiamo selector da app.components.ts -->
-<app-messages></app-messages>
-<!-- richamo app-messages che ho scricato -->
 
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
 
 <router-outlet></router-outlet>
+<!-- quando sei in /heres/ diventa heroesComponent -->
+<app-messages></app-messages>
+<!-- richamo app-messages che ho scricato -->
