@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from 'src/app/model/hero';
 import { HeroService } from 'src/app/services/hero/hero.service';
-import { MessageService } from 'src/app/services/message/message.service';
+// import { MessageService } from 'src/app/services/message/message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -11,10 +11,10 @@ import { MessageService } from 'src/app/services/message/message.service';
 export class HeroesComponent implements OnInit {
 
   // hero = 'Windstorm'; // typescript sa già che è string, non puoi quindi infilare numero
-  hero: Hero = {
-    name: 'Windstorm',
-    id: 1,
-  }
+  // hero: Hero = {
+  //   name: 'Windstorm',
+  //   id: 1,
+  // }
 
     // selectedHero?: Hero; // quando etto nuova proprietà controlla se l'abbia già inizializzata,
     //                      scrivendola così non devo garantire che sia proprietà piena(opppure  selectedHero: Hero | undefined)
@@ -41,5 +41,17 @@ export class HeroesComponent implements OnInit {
         next: newHeroes => this.heroes = newHeroes,
         error: err => console.log(err)
       });
+    }
+
+    add(name: string): void {
+      name = name.trim();
+      if (!name) { return; }
+      this.heroServ.addHero({ name } as Hero)
+//  quello tra graffe e un cast, oggetto generico che dico di trattare come argomento fuori graffe
+        .subscribe({
+          next: (hero) => this.heroes.push(hero),
+          error: (err) => console.log(err)
+
+        });
     }
 }

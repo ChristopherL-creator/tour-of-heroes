@@ -27,3 +27,15 @@
     </a>
   </li>
 </ul>
+
+<div>
+  <label for="new-hero">Hero name: </label>
+  <input id="new-hero" #heroName />
+  <!-- con # da nome a tag, e li da value poco sotto -->
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
+    <!-- chiamo variabile heroname che avevo menzioanto prima -->
+    Add hero
+  </button>
+</div>
