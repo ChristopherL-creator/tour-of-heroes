@@ -83,6 +83,29 @@ addHero(hero: Hero): Observable<Hero> {
   );
 }
 
+deleteHero(id: string): Observable<Hero>{
+  const heroUrl = this.heroesUrl + '/' + id;
+  return this.http.delete<Hero>(heroUrl, this.httpOptions).pipe(
+    tap(_ => this.log(`deleted hero id=${id}`)),
+    catchError(this.handleError<Hero>('deleteHero'))
+  );
+}
+
+searchHeroByName(term: string): Observable<Hero[]>{
+  const searchString = term.trim();
+  if (searchString) {
+    const searchUrl = this.heroesUrl + "/?name=" + searchString;
+    return this.http.get<Hero[]>(searchUrl).pipe(
+      tap(heroArray => heroArray.length !== 0 ?
+       this.log(`found heroes matching "${term}"`) :
+       this.log(`no heroes matching "${term}"`)),
+    catchError(this.handleError<Hero[]>('searchHeroes', []))
+    )
+  } else {
+    return of([]);
+  }
+}
+
   // find(id: number){
   //   for (const hero of HEROES) {
   //     if (hero.id === id)
